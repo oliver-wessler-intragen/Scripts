@@ -1,4 +1,5 @@
--- create search statement table
+-- create search statement for all code columns of a table
+-- uses columns from table display pattern for object name
 select
 	'select ''' + dt.TableName + ''' as ObjectType, ''' + dc.ColumnName + ''' as ObjectAttribute, ' + isnull(dname.columnname, '<<ObjectName>>') + ' as ObjectName, XObjectKey as ObjectKey from ' + dt.TableName + ' where ' + dc.ColumnName + ' like ''%''+@keyword+''%'''
 from
